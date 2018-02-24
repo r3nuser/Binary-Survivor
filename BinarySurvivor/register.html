@@ -1,0 +1,93 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet"> 
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="top-nav">
+		<img src="logo.png" class="img-logo img-logo-white">
+		<div id="left">
+			<h1 class="name-game">Binary Survivor</h1>
+		</div>
+		<div id="right">
+			<img src="https://cdn2.iconfinder.com/data/icons/social-buttons-2/512/facebook-512.png" class="img-logo">
+			<img src="https://images.vexels.com/media/users/3/137419/isolated/preview/b1a3fab214230557053ed1c4bf17b46c-logotipo-do--cone-do-twitter-by-vexels.png" class="img-logo">
+			<img src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300" class="img-logo">
+			<img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" class="img-logo">
+		</div>
+	</div>
+	<hr>
+	<div id="top-center">
+		<hr size="0">
+		<a href="index.html"><p class="call">Voltar para página anterior!</p></a>
+		<hr size="0">
+	</div>
+	<hr>
+	<div id="middle">
+		<div class="left"></div>
+		<hr>
+		<div id="about">
+			<h1 align="center">Formulário de Cadastro</h1>
+			<hr>
+			<form align="center">
+				<p>Nome: <input type="text"> Sobrenome: <input type="text"></p>
+				<p>Data de Nascimento:
+					<select id="dd">
+						<script>
+							var options;
+							for(var i=1; i<=31; i++){
+								options+= "<option name=\"a"+i+"\""+">"+i+" </option>";
+							}
+							document.getElementById("dd").innerHTML=options;
+						</script>
+					</select>
+					/
+					<select id="month">
+						<option name="jan">Janeiro</option>
+						<option name="fev">Fevereiro</option>
+						<option name="mar">Março</option>
+						<option name="abr">Abril</option>
+						<option name="mai">Maio</option>
+						<option name="jun">Junho</option>
+						<option name="jul">Julho</option>
+						<option name="ago">Agosto</option>
+						<option name="set">Setembro</option>
+						<option name="out">Outubro</option>
+						<option name="nov">Novembro</option>
+						<option name="dez">Dezembro</option>
+					</select>
+					/
+					<select id="year">
+						<script>
+							var years='';
+							for(var i = 1920; i <= 2018; i++){
+								years+="<option name=\"y"+i+"\">"+i+"</option>";
+							}
+							document.getElementById("year").innerHTML = years;
+						</script>
+					</select>
+					<hr width="50%">
+				</p>
+				<p>Email: <input type="email"></p>
+				<p>Login de usuário: <input type="text"></p>
+				<p>Senha de usuário: <input type="password"></p>
+				<p>Confirmação de senha: <input type="password"></p>
+				<br>
+				<h5>Ao clicar em "Cadastrar-se", automaticamente você concorda com os nossos <a>Termos de Uso</a>.</h5>
+				<div align="center">
+					<input type="submit" value="Cadastrar-se">
+				</div>
+			</form>
+		</div>
+		<hr>
+		<div class="right"></div>
+	</div>
+	<hr>
+	<div id="footer">
+		<hr>
+		<img src="https://1.bp.blogspot.com/-iNb2umFLkzk/VLz_jL9lvvI/AAAAAAAABLs/gSHInHGGIzU/s1600/DCF.png" class="small-image">bigamo corp todos os direitos reservados
+		<hr>
+	</div>
+</body>
+</html>

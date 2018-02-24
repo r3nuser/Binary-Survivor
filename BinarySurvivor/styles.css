@@ -1,0 +1,105 @@
+form{
+	margin: 50px;
+}
+a{
+	text-decoration:none;
+	color: white;
+	transition: 0.5s;
+}
+a:hover{
+	color: #FA0;
+	text-shadow: 2px 2px 4px #F70;
+}
+body{
+	margin: 0;
+	font-family: 'Audiowide', cursive;
+	background-image: url("town.png");
+	background-size: cover;
+}
+#top-nav{
+	background-color: #1b223a;
+	border-bottom: solid;
+	text-shadow: 0px 0px 5px black;
+	color: white;
+	position: relative;
+	display: flex;
+}
+.name-game{
+	margin:15px;
+	font-size:20px;
+}
+.img-logo{
+	height: 40px;
+	margin: 5px;
+}
+.img-logo-white{
+	background-color: white;
+	border-radius: 50%;
+}
+#left{
+	flex-grow: 1;
+}
+#right{
+	background-color: #333;
+}
+.left{
+	width: 20%;
+}
+.right{
+	width: 20%;
+}
+#middle{
+	display: flex;
+}
+#top-center{
+	text-align: center;
+	display: flex;
+}
+.call{
+	background-color: #ffd907;
+	color: white;
+	border-radius: 20%;
+	padding: 10px;
+	font-size: 30px;
+	font-weight: 900;
+	text-shadow: 0px 0px 2px black;
+	border-style: solid;
+	border-color: #F60;
+}
+#about{
+	margin: 10px;
+	background-color: #edc45c;
+	border-radius: 3%;
+	box-shadow: 1px 1px 10px black;
+	padding: 5px;
+	flex-grow: 1;
+	color: #600f0f;
+}
+#side-bar{
+	display: block;
+	font-size: 25px;
+	color: white;
+	
+}
+.side-call{
+	background-color: #4c92c4;
+	border-bottom: solid;
+	padding: 10px;
+	margin: 10px;
+	width: 300px;
+	border-radius: 10%;
+}
+.side-img{
+	padding-right: 10px;
+	width: 40px;
+	height: 40px;
+}
+#footer{
+	background-color: black;
+	position: relative;
+	width: 100%;
+	color: white;
+}
+.small-image{
+	height: 50px;
+}
