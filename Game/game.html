@@ -2,25 +2,32 @@
 <head>
 	<meta charset="utf-8">
 	<link href="styles.css" rel="stylesheet" type="text/css">
-	 <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="script.js"></script>
 </head>
-<body onLoad="Inicializa()">
+<body onLoad="Inicializa();">
 	<div id="game-content">
 		<div id="game-screen">
 			<canvas id="game" width=800 height=600 style="border:solid">Seu Navegador não suporta Canvas :/</canvas>
 		</div>
 		<div id="text-editor">
-			<h4 align="center">Text Editor</h4>
 			<div class="text-editor-style">
-				<div class="workers"></div>
-				<div class="text">
-					<textarea id="text-lines" onKeyDown="javascript: if(event.keyCode==9){ espaces(); return false;}" value="">
+				
 
-					</div>
+				<div class="workers">
+
+
 				</div>
+
+				<div class="text">
+					<ul class="number-lines">
+					</ul>
+					<textarea id="text-lines" wrap="off" onKeyDown="javascript: if(event.keyCode==9){espaces(); return false;}">
+				</div>
+
 			</div>
 		</div>
+	</div>
 
-	</body>
-	</html>
+</body>
+</html>
