@@ -1,4 +1,3 @@
-
 var elemento;
 
 function Inicializa(){
@@ -22,10 +21,4 @@ function espaces(){
 	elemento.selectionEnd = cursorPosition + 4;
 	elemento.selectionStart = cursorPosition + 4;
 	console.log(cursorPosition);
-}	
-
-
-/*var teclaEsquerda = jQuery.Event("keypress");
-	teclaEsquerda.ctrlKey = false;
-	teclaEsquerda.which = 21; //Código da tecla - seta esquerda
-	$("botao").trigger(teclaEsquerda);*/
+} 
