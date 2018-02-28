@@ -4,13 +4,22 @@ body{
 	background-image: url("../BinarySurvivor/town.png");
 	background-size: cover;
 }
+hr{
+	margin:10px;
+	padding: 0px;
+}
+.player-debug{
+	margin: 0px;
+	padding: 0px;
+}
 .side-side{
 	display:flex;
 	color:red;
-	font-size: 20px;
-	margin: 5px;
+	font-size: 15px;
+	margin: 0px;
+	padding: 0px;
 	border-style: dotted;
-	background-color: white;
+	background-color: black;
 }
 #game{
 	box-shadow: 0px 0px 10px black;
