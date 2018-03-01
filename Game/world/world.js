@@ -18,6 +18,10 @@ var World = function () {
                 }
             }
             
-            this.matrix[3][3] = 2;
+           
+           
+            this.matrix[6][6] = 2;
         }
+
+
 }

@@ -10,7 +10,7 @@ var Player = function () {
         this.mvDown = false,
         this.block_x = 0,
         this.block_y = 0;
-        this.blc_left,
+    this.blc_left,
         this.blc_right,
         this.blc_up,
         this.blc_down;
@@ -52,9 +52,36 @@ var Player = function () {
         }
     }
 
-    this.leftCollision = function(tile){
-        if(tile.collision && this.x < tile.width*(this.block_x)+5){
-            this.x += 6;
+    this.encostou = function (tile, local_x, local_y) {
+
+        if (local_x + tile.width > this.x &&
+            local_y + tile.height - 6 > this.y &&
+            local_y + 6 < this.y + this.height &&
+            this.x > local_x) {
+            this.x = local_x + tile.width;
+            rc.innerHTML = " " + true + " ";
+        } else {
+            rc.innerHTML = " " + false + " ";
+        }
+        
+        if (local_x - tile.width < this.x &&
+            local_y - tile.height + 6 < this.y &&
+            local_y - 6 > this.y - this.height &&
+            this.x < local_x) {
+            
+            this.x = local_x - tile.width;
+            lc.innerHTML = " " + true + " ";
+        } else {
+            lc.innerHTML = " " + false + " ";
+        }
+
+        if(local_y < this.y + this.height &&
+            local_x >= this.x && local_x+ tile.width <= this.x  
+        ){
+            this.y = local_y - this.height;
+            dc.innerHTML = " " + true + " ";
+        }else{
+            dc.innerHTML = " " + false + " ";
         }
     }
 }

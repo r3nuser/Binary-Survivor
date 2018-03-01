@@ -137,7 +137,7 @@
         player.block_y = parseInt((player.y / player.height));
 
         //colisao do personagem
-        
+
     }
 
 
@@ -180,6 +180,9 @@
                             break;
                     }
                     ctx.drawImage(tile.img, 0, 0, tile.width, tile.height, 32 * i, 32 * j, tile.width, tile.height);
+                    if (tile.collision == true) {
+                        player.encostou(tile, 32 * i, 32 * j);
+                    }
                 }
 
             }
