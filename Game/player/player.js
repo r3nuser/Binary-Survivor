@@ -7,9 +7,20 @@ var Player = function () {
         this.mvLeft = false,
         this.mvUp = false,
         this.mvRight = false,
-        this.mvDown = false
+        this.mvDown = false,
+        this.block_x = 0,
+        this.block_y = 0;
+        this.blc_left,
+        this.blc_right,
+        this.blc_up,
+        this.blc_down;
 
-    this.moviment_player = function (texteditor) {
+    var uc = document.getElementById("uc"),
+        dc = document.getElementById("dc"),
+        rc = document.getElementById("rc"),
+        lc = document.getElementById("lc");
+
+    this.moviment_player = function () {
 
         if (this.mvLeft && !this.mvRight) {
             this.x -= 5;
@@ -41,6 +52,11 @@ var Player = function () {
         }
     }
 
+    this.leftCollision = function(tile){
+        if(tile.collision && this.x < tile.width*(this.block_x)+5){
+            this.x += 6;
+        }
+    }
 }
 
 

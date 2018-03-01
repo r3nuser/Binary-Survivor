@@ -33,6 +33,7 @@
     grass.height = 32;
     grass.img = grass_img;
     grass.id = 1;
+    grass.collision = false;
 
     var stone = new Tile();
     stone.width = 32;
@@ -45,31 +46,15 @@
     player.img = monster;
     player.width = player.height = 32;
 
+    var gameWorld = new World();
+    gameWorld.i_size = 60;
+    gameWorld.j_size = 60;
+    gameWorld.generateWorld();
+    gameWorld.width = gameWorld.i_size * grass.width;
+    gameWorld.height = gameWorld.j_size * grass.height;
 
-    var gameWorld = {
-        i_size: 60,
-        j_size: 60,
-        matrix: [],
-        x: 0,
-        y: 0,
-        width: 60 * grass.width,
-        height: 60 * grass.height
-    };
 
-    function generateWorld(gameWorld) {
-
-        for (var i = 0; i < gameWorld.i_size; i++) {
-            gameWorld.matrix.push([]);
-            for (var j = 0; j < gameWorld.j_size; j++) {
-                gameWorld.matrix[i].push(1);
-            }
-        }
-        gameWorld.matrix[2][2] = 2;
-
-        console.log(gameWorld.matrix);
-    }
-
-    generateWorld(gameWorld);
+    console.log(gameWorld.shadow);
 
     sprites.push(player);
 
@@ -136,17 +121,23 @@
         plr_y_d.innerHTML = player.y + " ";
         cam_x_d.innerHTML = cam.x + " ";
         cam_y_d.innerHTML = cam.y + " ";
-        blc_x_d.innerHTML = parseInt((player.x / player.width)) + " ";
-        blc_y_d.innerHTML = parseInt((player.y / player.height)) + " ";
+        blc_x_d.innerHTML = player.block_x + " ";
+        blc_y_d.innerHTML = player.block_y + " ";
     }
     function update() {
-        player.moviment_player(texteditor);
+        player.moviment_player();
         // limite do edge
         cam.edgeLimit(player);
         // limite da camera
         cam.cameraLimit(gameWorld);
         // limite do personagem
         player.player_limit(gameWorld);
+
+        player.block_x = parseInt((player.x / player.width));
+        player.block_y = parseInt((player.y / player.height));
+
+        //colisao do personagem
+        
     }
 
 
@@ -155,21 +146,26 @@
 
         ctx.translate(-cam.x, -cam.y);
         drawTerrain();
-        dynamicDraw(3);
+        dynamicDraw(8, 1);
+        ctx.globalAlpha = 1;
         for (var i in sprites) {
             var sp = sprites[i];
+
             ctx.drawImage(sp.img, 0, 0, sp.width, sp.height, sp.x, sp.y, sp.width, sp.height);
         }
         ctx.restore();
         //hud
     }
 
-    function dynamicDraw(range) {
-        var block_x = parseInt((player.x / player.width)),
-            block_y = parseInt((player.y / player.height));
 
-        for (var i = block_x - range; i < block_x + range + 2; i++) {
-            for (var j = block_y - range; j < block_y + range + 2; j++) {
+
+    function dynamicDraw(range, alpha) {
+
+        //console.log();
+        for (var i = player.block_x - range; i < player.block_x + range + 2; i++) {
+
+            for (var j = player.block_y - range; j < player.block_y + range + 2; j++) {
+
                 if (i >= 0 && j >= 0 && i < gameWorld.i_size && gameWorld.j_size) {
                     var tile;
                     switch (gameWorld.matrix[i][j]) {
@@ -183,18 +179,22 @@
                             tile = grass;
                             break;
                     }
-
                     ctx.drawImage(tile.img, 0, 0, tile.width, tile.height, 32 * i, 32 * j, tile.width, tile.height);
                 }
+
             }
+
+
         }
 
     }
+
 
     function drawTerrain() {
         for (var i = 0; i < 60; i++) {
             for (var j = 0; j < 60; j++) {
                 //if(matrix[i][j]==1){
+
                 ctx.drawImage(shadow, 0, 0, grass.width, grass.height, 32 * i, 32 * j, grass.width, grass.height);
                 //}
             }
