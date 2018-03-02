@@ -10,18 +10,8 @@ var Player = function () {
         this.mvDown = false,
         this.block_x = 0,
         this.block_y = 0;
-    this.blc_left,
-        this.blc_right,
-        this.blc_up,
-        this.blc_down;
-
-    var uc = document.getElementById("uc"),
-        dc = document.getElementById("dc"),
-        rc = document.getElementById("rc"),
-        lc = document.getElementById("lc");
 
     this.moviment_player = function () {
-
         if (this.mvLeft && !this.mvRight) {
             this.x -= 5;
         }
@@ -53,38 +43,38 @@ var Player = function () {
     }
 
     this.encostou = function (tile, local_x, local_y) {
-
-        if (local_x + tile.width > this.x &&
-            local_y + tile.height - 6 > this.y &&
-            local_y + 6 < this.y + this.height &&
+        if (this.x + this.width - 10 > local_x &&
+            this.x < local_x + tile.width - 10 &&
+            this.y <= local_y) {
+            if (this.y + this.height > local_y) {
+                this.y = local_y - this.height - 1;
+            }
+        }
+        if (this.x + this.width - 10 > local_x &&
+            this.x < local_x + tile.width - 10 &&
+            this.y >= local_y) {
+            if (this.y < local_y + tile.height) {
+                this.y = local_y + tile.height + 1;
+            }
+        }
+        if (this.y + this.height - 10 > local_y &&
+            this.y < local_y + tile.height - 10 &&
             this.x > local_x) {
-            this.x = local_x + tile.width;
-            rc.innerHTML = " " + true + " ";
-        } else {
-            rc.innerHTML = " " + false + " ";
+            if (this.x < local_x + tile.width) {
+                this.x = local_x + this.width + 1;
+            }
         }
-        
-        if (local_x - tile.width < this.x &&
-            local_y - tile.height + 6 < this.y &&
-            local_y - 6 > this.y - this.height &&
+        if (this.y + this.height - 10 > local_y &&
+            this.y < local_y + tile.height - 10 &&
             this.x < local_x) {
-            
-            this.x = local_x - tile.width;
-            lc.innerHTML = " " + true + " ";
-        } else {
-            lc.innerHTML = " " + false + " ";
-        }
-
-        if(local_y < this.y + this.height &&
-            local_x >= this.x && local_x+ tile.width <= this.x  
-        ){
-            this.y = local_y - this.height;
-            dc.innerHTML = " " + true + " ";
-        }else{
-            dc.innerHTML = " " + false + " ";
+            if (this.x + this.width > local_x) {
+                this.x = local_x - this.width;
+            }
         }
     }
 }
+
+
 
 
 

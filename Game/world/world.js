@@ -20,7 +20,17 @@ var World = function () {
             
            
            
-            this.matrix[6][6] = 2;
+            this.matrix[5][5] = 2;
+            this.matrix[4][4] = 2;
+            this.matrix[4][5] = 2;
+            this.matrix[5][4] = 2;
+
+            this.matrix[15][15] = 2;
+
+            this.matrix[7][7] = 2;
+            this.matrix[7][9] = 2;
+            this.matrix[9][7] = 2;
+            this.matrix[9][9] = 2;
         }
 
 
