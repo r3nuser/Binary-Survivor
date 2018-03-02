@@ -61,7 +61,7 @@ var Player = function () {
             this.y < local_y + tile.height - 10 &&
             this.x > local_x) {
             if (this.x < local_x + tile.width) {
-                this.x = local_x + this.width + 1;
+                this.x = local_x + tile.width + 1;
             }
         }
         if (this.y + this.height - 10 > local_y &&

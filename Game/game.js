@@ -23,6 +23,9 @@
     var stone_img = new Image();
     stone_img.src = "tiles/stone.png";
 
+    var sand_img = new Image();
+    sand_img.src = "tiles/sand.png";
+
     var shadow = new Image();
     shadow.src = "tiles/shadow.png";
 
@@ -35,6 +38,13 @@
     grass.id = 1;
     grass.collision = false;
 
+    var sand = new Tile();
+    sand.width = 32;
+    sand.height = 32;
+    sand.img = sand_img;
+    sand.id = 3;
+    sand.collision = false;
+
     var stone = new Tile();
     stone.width = 32;
     stone.height = 32;
@@ -44,7 +54,8 @@
 
     var player = new Player();
     player.img = monster;
-    player.width = player.height = 32;
+    player.width = 32 ;
+    player.height = 64;
 
     var gameWorld = new World();
     gameWorld.i_size = 60;
@@ -134,7 +145,7 @@
         player.player_limit(gameWorld);
 
         player.block_x = parseInt((player.x / player.width));
-        player.block_y = parseInt((player.y / player.height));
+        player.block_y = parseInt((player.y / player.width));
 
         //colisao do personagem
 
@@ -146,7 +157,7 @@
 
         ctx.translate(-cam.x, -cam.y);
         drawTerrain();
-        dynamicDraw(8, 1);
+        dynamicDraw(10, 1);
         ctx.globalAlpha = 1;
         for (var i in sprites) {
             var sp = sprites[i];
@@ -174,6 +185,9 @@
                             break;
                         case 2:
                             tile = stone;
+                            break;
+                        case 3:
+                            tile = sand;
                             break;
                         default:
                             tile = grass;
