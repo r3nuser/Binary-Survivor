@@ -4,13 +4,9 @@ var Player = function () {
         this.y = 0,
         this.width = 32,
         this.height = 32,
-        this.mvLeft = false,
-        this.mvUp = false,
-        this.mvRight = false,
-        this.mvDown = false,
         this.block_x = 0,
         this.block_y = 0;
-
+    
     this.moviment_player = function () {
         if (this.mvLeft && !this.mvRight) {
             this.x -= 5;
