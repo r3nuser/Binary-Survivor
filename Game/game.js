@@ -211,6 +211,7 @@
                 mid = true;
             }
             if (mid) a--;
+            
             else a++;
 
         }
